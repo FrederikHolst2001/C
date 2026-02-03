@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+    window.base44 = {
+      get: async function () {
+        console.warn("base44.get called – returning empty data");
+        return [];
+      },
+      post: async function () {
+        console.warn("base44.post called – returning empty data");
+        return {};
+      },
+    };
+  </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
