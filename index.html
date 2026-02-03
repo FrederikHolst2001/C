@@ -1,18 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script>
+<script>
+  (function () {
+    const emptyAsync = async () => [];
+    const emptyObjectAsync = async () => ({});
+
     window.base44 = {
-      get: async function () {
-        console.warn("base44.get called – returning empty data");
-        return [];
+      // Common REST-style calls
+      get: emptyAsync,
+      post: emptyObjectAsync,
+      put: emptyObjectAsync,
+      delete: emptyObjectAsync,
+
+      // RPC / invoke-style calls (this is what your error shows)
+      invoke: emptyAsync,
+
+      // Auth-related calls
+      me: emptyObjectAsync,
+
+      auth: {
+        me: emptyObjectAsync,
+        login: emptyObjectAsync,
+        logout: emptyObjectAsync,
       },
-      post: async function () {
-        console.warn("base44.post called – returning empty data");
-        return {};
+
+      // Client-style namespace (very common)
+      client: {
+        invoke: emptyAsync,
+        get: emptyAsync,
+        post: emptyObjectAsync,
       },
+
+      // Fallback for anything unexpected
+      _isStub: true,
     };
-  </script>
+
+    console.warn("⚠️ base44 stub loaded (safe mode)");
+  })();
+</script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
