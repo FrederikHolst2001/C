@@ -6,36 +6,6 @@
     const emptyAsync = async () => [];
     const emptyObjectAsync = async () => ({});
 
-    window.base44 = {
-      // Common REST-style calls
-      get: emptyAsync,
-      post: emptyObjectAsync,
-      put: emptyObjectAsync,
-      delete: emptyObjectAsync,
-
-      // RPC / invoke-style calls (this is what your error shows)
-      invoke: emptyAsync,
-
-      // Auth-related calls
-      me: emptyObjectAsync,
-
-      auth: {
-        me: emptyObjectAsync,
-        login: emptyObjectAsync,
-        logout: emptyObjectAsync,
-      },
-
-      // Client-style namespace (very common)
-      client: {
-        invoke: emptyAsync,
-        get: emptyAsync,
-        post: emptyObjectAsync,
-      },
-
-      // Fallback for anything unexpected
-      _isStub: true,
-    };
-
     console.warn("⚠️ base44 stub loaded (safe mode)");
   })();
 </script>
